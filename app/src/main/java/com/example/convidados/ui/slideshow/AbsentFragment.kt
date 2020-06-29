@@ -9,22 +9,26 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.convidados.R
+import kotlinx.android.synthetic.main.fragment_slideshow.*
 
-class SlideshowFragment : Fragment() {
+class AbsentFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: SlideshowViewModel
+    private lateinit var absentViewModel: AbsentViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel::class.java)
+        absentViewModel =
+                ViewModelProviders.of(this).get(AbsentViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
         val textView: TextView = root.findViewById(R.id.text_slideshow)
-        slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
+        absentViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
+        })
+        absentViewModel.titulo.observe(viewLifecycleOwner, Observer {TituloViewModel ->
+            titulo_ausentes.text = TituloViewModel
         })
         return root
     }

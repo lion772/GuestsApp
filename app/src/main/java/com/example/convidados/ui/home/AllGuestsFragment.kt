@@ -35,7 +35,7 @@ class AllGuestsFragment : Fragment() {
         allGuestsViewModel.titulo.observe(viewLifecycleOwner, Observer {
             titulo_todos_convidados.text = it
             titulo_todos_convidados?.run {
-                titulo_todos_convidados.setTextColor(resources.getColor(branco))
+                titulo_todos_convidados.setTextColor(resources.getColor(white))
                 titulo_todos_convidados.setBackgroundColor(resources.getColor(colorPrimary))
 
             }

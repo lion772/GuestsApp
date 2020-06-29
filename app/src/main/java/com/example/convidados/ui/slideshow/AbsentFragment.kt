@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.convidados.R
+import com.example.convidados.R.color.colorPrimary
 import kotlinx.android.synthetic.main.fragment_slideshow.*
 
 class AbsentFragment : Fragment() {
@@ -29,6 +30,10 @@ class AbsentFragment : Fragment() {
         })
         absentViewModel.titulo.observe(viewLifecycleOwner, Observer {TituloViewModel ->
             titulo_ausentes.text = TituloViewModel
+            titulo_ausentes?.run {
+                titulo_ausentes.setTextColor(resources.getColor(R.color.white))
+                titulo_ausentes.setBackgroundColor(resources.getColor(R.color.colorPrimary))
+            }
         })
         return root
     }

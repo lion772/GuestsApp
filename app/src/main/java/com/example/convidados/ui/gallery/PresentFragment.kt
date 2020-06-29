@@ -31,7 +31,8 @@ class PresentFragment : Fragment() {
         presentViewModel.titulo.observe(viewLifecycleOwner, Observer { TituloViewModel ->
             titulo_presentes.text = TituloViewModel
             titulo_presentes?.run {
-                titulo_presentes.setTextColor(resources.getColor(colorPrimary))
+                titulo_presentes.setTextColor(resources.getColor(R.color.white))
+                titulo_presentes.setBackgroundColor(resources.getColor(colorPrimary))
             }
         })
         return root

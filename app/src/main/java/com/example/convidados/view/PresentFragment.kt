@@ -1,4 +1,4 @@
-package com.example.convidados.ui.gallery
+package com.example.convidados.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.convidados.R
 import com.example.convidados.R.color.colorPrimary
+import com.example.convidados.viewmodel.PresentViewModel
 import kotlinx.android.synthetic.main.fragment_gallery.*
 
 class PresentFragment : Fragment() {

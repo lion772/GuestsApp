@@ -1,4 +1,4 @@
-package com.example.convidados.ui.home
+package com.example.convidados.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.convidados.R
 import com.example.convidados.R.color.*
+import com.example.convidados.viewmodel.AllGuestsViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class AllGuestsFragment : Fragment() {

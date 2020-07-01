@@ -1,18 +1,18 @@
-package com.example.convidados.ui.slideshow
+package com.example.convidados.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class AbsentViewModel : ViewModel() {
+class PresentViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Aqui é o fragmento dos convidados ausentes"
+        value = "Aqui é o fragmento dos convidados presentes"
     }
     val text: LiveData<String> = _text
 
     private val _titulo = MutableLiveData<String>().apply {
-        value = "Liste de convidados que não vieram: "
+        value = "Lista de convidados presentes:"
     }
-    val titulo:LiveData<String> = _titulo
+    val titulo: LiveData<String> = _titulo
 }

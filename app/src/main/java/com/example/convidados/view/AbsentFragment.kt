@@ -1,4 +1,4 @@
-package com.example.convidados.ui.slideshow
+package com.example.convidados.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.convidados.R
-import com.example.convidados.R.color.colorPrimary
+import com.example.convidados.viewmodel.AbsentViewModel
 import kotlinx.android.synthetic.main.fragment_slideshow.*
 
 class AbsentFragment : Fragment() {

@@ -1,10 +1,8 @@
-package com.example.convidados
+package com.example.convidados.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.convidados.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            val intent = Intent(this, GuestFormActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, GuestFormActivity::class.java))
         }
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -38,7 +36,10 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_all, R.id.nav_presents, R.id.nav_absents), drawerLayout)
+            R.id.nav_all,
+            R.id.nav_presents,
+            R.id.nav_absents
+        ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

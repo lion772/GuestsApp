@@ -22,12 +22,6 @@ class GuestRepository private constructor(context: Context) { //Com private cons
                 repository = GuestRepository(context)
             }
             return repository
-
-            /*if (repository != null){
-                return repository
-            }else{
-                return GuestRepository(context)
-            }*/
         }
     }
 

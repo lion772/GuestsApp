@@ -4,46 +4,38 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.convidados.R
 import com.example.convidados.R.color.*
+import com.example.convidados.view.adapter.GuestAdapter
 import com.example.convidados.viewmodel.AllGuestsViewModel
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_all.*
 
 class AllGuestsFragment : Fragment() {
 
     private lateinit var allGuestsViewModel: AllGuestsViewModel
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        allGuestsViewModel =
-                ViewModelProviders.of(this).get(AllGuestsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        /*fab.setOnClickListener {
+        allGuestsViewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_all, container, false)
 
-        }*/
-        allGuestsViewModel.text.observe(viewLifecycleOwner, Observer { Convidados ->
-            textView.text = Convidados
-        })
+        //RecyclerView
+        //1ª Obter a recycler
+        val recycler = root.findViewById<RecyclerView>(R.id.recycler_all_guests)
+        //2ª Definir um layout
+        recycler.layoutManager = LinearLayoutManager(context)
 
-        allGuestsViewModel.titulo.observe(viewLifecycleOwner, Observer {
-            titulo_todos_convidados.text = it
-            titulo_todos_convidados?.run {
-                titulo_todos_convidados.setTextColor(resources.getColor(white))
-                titulo_todos_convidados.setBackgroundColor(resources.getColor(colorPrimary))
-
-            }
-        })
+        //3ª Definir um adapter
+        recycler.adapter = GuestAdapter()
 
         return root
-
-
     }
 }

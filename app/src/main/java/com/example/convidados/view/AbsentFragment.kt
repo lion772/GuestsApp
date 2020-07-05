@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.convidados.R
 import com.example.convidados.viewmodel.AbsentViewModel
-import kotlinx.android.synthetic.main.fragment_slideshow.*
+import kotlinx.android.synthetic.main.fragment_absent.*
 
 class AbsentFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class AbsentFragment : Fragment() {
     ): View? {
         absentViewModel =
                 ViewModelProviders.of(this).get(AbsentViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
+        val root = inflater.inflate(R.layout.fragment_absent, container, false)
         val textView: TextView = root.findViewById(R.id.text_slideshow)
         absentViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it

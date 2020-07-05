@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.convidados.R
 import com.example.convidados.R.color.colorPrimary
 import com.example.convidados.viewmodel.PresentViewModel
-import kotlinx.android.synthetic.main.fragment_gallery.*
+import kotlinx.android.synthetic.main.fragment_present.*
 
 class PresentFragment : Fragment() {
 
@@ -24,7 +24,7 @@ class PresentFragment : Fragment() {
     ): View? {
         presentViewModel =
                 ViewModelProviders.of(this).get(PresentViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+        val root = inflater.inflate(R.layout.fragment_present, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
         presentViewModel.text.observe(viewLifecycleOwner, Observer {TextoViewModel ->
             textView.text = TextoViewModel

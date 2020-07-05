@@ -1,8 +1,10 @@
 package com.example.convidados.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.convidados.viewmodel.GuestFormViewModel
@@ -20,14 +22,18 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_guest_form)
 
         supportActionBar?.hide()
-
         setListener()
         guestObserve()
     }
 
     private fun guestObserve() {
-        viewModel.saveGuest.observe(this, Observer { isPresent ->
-            radio_present.isChecked = isPresent
+        viewModel.saveGuest.observe(this, Observer {
+            if (it){
+                Toast.makeText(applicationContext, "sucesso!", Toast.LENGTH_SHORT).show()
+            } else{
+                Toast.makeText(applicationContext, "falha", Toast.LENGTH_SHORT).show()
+            }
+            finish()
         })
     }
 
@@ -39,15 +45,11 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         val id = view.id
         if (id == R.id.button_save) {
+
             val nameCaptured = edit_name.text.toString()
-            val context = MainActivity@ this
+            val presence = radio_present.isChecked
 
-            if (radio_present.isChecked) {
-                viewModel.save(nameCaptured, isPresent = true, context = context)
-            } else if (radio_absent.isChecked) {
-                viewModel.save(nameCaptured, isPresent = false, context = context)
-            }
-
+            viewModel.save(nameCaptured, presence)
         }
     }
 }

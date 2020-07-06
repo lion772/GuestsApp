@@ -7,9 +7,6 @@ import com.example.convidados.view.viewholder.GuestViewHolder
 
 class GuestAdapter: RecyclerView.Adapter<GuestViewHolder>() {
 
-
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GuestViewHolder {
         TODO("Not yet implemented")
     }

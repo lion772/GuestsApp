@@ -36,6 +36,8 @@ class AllGuestsFragment : Fragment() {
         //3ª Definir um adapter
         recycler.adapter = GuestAdapter()
 
+        allGuestsViewModel.load()
+
         return root
     }
 }

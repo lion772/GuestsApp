@@ -27,9 +27,9 @@ class GuestAdapter: RecyclerView.Adapter<GuestViewHolder>() {
 
     }
 
-    fun update(list: List<GuestModel>){
-
+    fun updateGuests(list: List<GuestModel>){
         _guestList = list
+        notifyDataSetChanged()
     }
 
 

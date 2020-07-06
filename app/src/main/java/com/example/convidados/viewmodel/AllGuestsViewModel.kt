@@ -19,6 +19,6 @@ class AllGuestsViewModel(application: Application) : AndroidViewModel(applicatio
     val titulo:LiveData<String> = _titulo
 
     fun load(){
-        _guestRepository.getAll()
+        _guestList.value = _guestRepository.getAll() //Buscamos a lista e atribuimos ao MutableLiveData
     }
 }

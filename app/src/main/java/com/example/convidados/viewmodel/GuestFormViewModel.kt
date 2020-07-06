@@ -25,6 +25,7 @@ class GuestFormViewModel(application: Application) :
     fun save(name: String, isPresent: Boolean) {
 
         val guest = GuestModel(name = name, presence = isPresent)
+
         _saveGuest.value = mGuestRepository.save(guest)
 
     }

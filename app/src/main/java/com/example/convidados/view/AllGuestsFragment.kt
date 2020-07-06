@@ -46,9 +46,8 @@ class AllGuestsFragment : Fragment() {
     }
 
     private fun observer() {
-        allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer {
-
-            _adapter.notifyDataSetChanged()
+        allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer { ListaDeConvidados ->
+            _adapter.updateGuests(ListaDeConvidados)
         })
     }
 }
